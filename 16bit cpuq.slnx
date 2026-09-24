@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="16bit cpuq/16bit cpuq.vcxproj" Id="517e3155-d6a2-4a5a-b320-90f164e45dfb" />
+</Solution>
