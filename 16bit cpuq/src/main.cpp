@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cpu/cpu.h>
+#include "cpu/cpu.h"
 
 constexpr uint16_t CELL_X = 0x1000;
 

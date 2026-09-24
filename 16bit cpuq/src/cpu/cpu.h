@@ -2,7 +2,7 @@
 
 #include <cstdint>
 #include <iostream>
-#include <cpu/ram.h>
+#include "ram.h"
 
 struct data_s {
 	int16_t acr;
@@ -117,7 +117,7 @@ void get_result() {
 	bool zero = data.acr == 0;
 	bool negative = data.acr < 0;
 	bool overflow = data.flags & 0x0;
-	bool parity = __popcnt(data.acr) % 2 == 0; // msvc specific, for other compilers use __builtin_popcount
+	bool parity = __builtin_popcount(data.acr) % 2 == 0; // msvc uses __popcnt
 	
 	std::cout << (carry ? "carry: true\n" : "");
 	std::cout << (zero ? "zero: true\n" : "");
