@@ -1,5 +1,9 @@
+#include <cstdint>
 #include <iostream>
+#include <fstream>
+#include <vector>
 #include "cpu/cpu.h"
+#include "cpu/assembler.h"
 
 int16_t calculator[] = {
 	static_cast<int16_t>(instructions::PUTS), 93,
@@ -84,11 +88,19 @@ void run_calculator() {
 	run_program(false);
 }
 
-int main()
-{
+int main(int argc, char** argv) {
 	std::cout << std::dec;
 
-	run_calculator();
+	if (argc < 2) return -1;
+
+	std::ifstream file(argv[1]);
+	std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+
+	std::vector<int16_t> program = assemble(content);
+
+	reset();
+	load_program(program.data(), program.size());
+	run_program(false);
 
 	return 0;
 }

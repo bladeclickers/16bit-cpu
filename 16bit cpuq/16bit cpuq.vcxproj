@@ -144,6 +144,7 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\cpu\assembler.h" />
     <ClInclude Include="src\cpu\cpu.h" />
     <ClInclude Include="src\cpu\ram.h" />
     <ClInclude Include="src\data\data.h" />
